@@ -591,26 +591,6 @@ GET /partners/me/webhooks/:id/deliveries?page=1&limit=20
 }
 ```
 
-## Webhook Security
-
-All webhook requests are signed with HMAC-SHA256 signatures for security verification. The signature is included in the `X-Cashtella-Signature` header.
-
-### Signature Verification (Node.js)
-```javascript
-const crypto = require('crypto');
-
-function verifyWebhookSignature(payload, signature, secret) {
-  const expectedSignature = crypto
-    .createHmac('sha256', secret)
-    .update(payload)
-    .digest('hex');
-  
-  return crypto.timingSafeEqual(
-    Buffer.from(signature, 'hex'),
-    Buffer.from(expectedSignature, 'hex')
-  );
-}
-```
 
 ## Error Handling
 
@@ -807,4 +787,4 @@ For API support:
 ---
 
 **Version**: 1.0  
-**Last Updated**: January 2024
+**Last Updated**: September 17, 2025
