@@ -133,7 +133,7 @@ GET /partners/me/wallet
 {
   "result": [
     {
-      "id": "wallet-uuid-123",
+      "id": "wallet-id-123",
       "currency": "CAD",
       "availableBalance": "1200.00",
       "currentBalance": "1500.00",
@@ -174,7 +174,7 @@ GET /partners/me/transactions?page=1&limit=20&startDate=2024-01-01&endDate=2024-
   "result": {
     "data": [
       {
-        "id": "txn-uuid-123",
+        "id": "txn-id-123",
         "amount": 100.00,
         "type": "CREDIT",
         "status": "SUCCESS",
@@ -208,14 +208,15 @@ GET /partners/me/transactions/{transactionId}
 ```json
 {
   "result": {
-    "id": "txn-uuid-123",
+    "id": "txn-id-123",
+    "createdAt": "2025-10-21T04:28:15.053Z",
+    "updatedAt": "2025-10-21T04:28:15.053Z",
+    "deletedAt": null,
     "amount": 100.00,
     "type": "CREDIT",
-    "status": "SUCCESS",
     "description": "Interac eTransfer funding",
-    "currency": "CAD",
-    "externalTranxId": "APAYLO123456",
-    "createdAt": "2024-01-15T10:30:00.000Z",
+    "status": "SUCCESS",
+    "externalTranxId": "TRANSACTION_12345",
     "metas": {}
   },
   "statusCode": 200,
@@ -553,18 +554,3 @@ print(data['result'])
 ```
 
 ---
-
-## Support
-
-For API support and questions:
-- Email: api-support@cashtella.com
-- Documentation: https://docs.cashtella.com
-- Status Page: https://status.cashtella.com
-
----
-
-## Changelog
-
-### Version 1.0.0
-- Initial release of Partner API
-- Support for wallet management, transactions, Interac e-Transfer, bank transfers, scheduled payments, and webhooks
